@@ -11,9 +11,4 @@ violet=7
 grey=8
 white=9
 
-if [[ ${!1:=INVALID} == "INVALID" || ${!2:=INVALID} == "INVALID" ]]; then
-    echo "invalid color"
-    exit 1
-else
-    echo ${!1}${!2}
-fi
+[[ -z ${!1} || -z ${!2} ]] && echo "invalid color" && exit 1 || echo ${!1}${!2}
